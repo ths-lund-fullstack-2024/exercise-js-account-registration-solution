@@ -2,15 +2,20 @@ import {
   unpackEvent,
   isPasswordValid,
   isConfirmPasswordValid,
+  checkAllInputsHaveValue,
 } from "./utilities.js";
 
 export const handleOnClick = (event) => {
   if (event.target.tagName === "FORM") return;
+  if (event.target.id === "submit-btn") return;
+
   const { input } = unpackEvent(event);
   input.focus();
 };
 
 export const handleOnFocusIn = (event) => {
+  if (event.target.id === "submit-btn") return;
+
   const { closestInputContainer, label } = unpackEvent(event);
 
   closestInputContainer.classList.add("focus");
@@ -18,6 +23,8 @@ export const handleOnFocusIn = (event) => {
 };
 
 export const handleOnFocusOut = (event) => {
+  if (event.target.id === "submit-btn") return;
+
   const { closestInputContainer, label, input } = unpackEvent(event);
 
   closestInputContainer.classList.remove("focus");
@@ -51,4 +58,30 @@ export const handleOnInput = (event) => {
       ? closestInputContainer.classList.remove("error")
       : closestInputContainer.classList.add("error");
   }
+
+  const submitBtn = document.querySelector(".submit-btn");
+
+  if (
+    isPasswordValid(password.value) &&
+    isConfirmPasswordValid(confirmPassword.value, password.value) &&
+    checkAllInputsHaveValue()
+  ) {
+    submitBtn.removeAttribute("disabled");
+  } else {
+    submitBtn.setAttribute("disabled", "true");
+  }
+};
+
+export const handleOnSubmit = (event) => {
+  event.preventDefault();
+  console.log("Form submitted");
+
+  const inputs = document.querySelectorAll("input");
+  const submitInfo = {};
+
+  inputs.forEach((input) => {
+    submitInfo[input.id] = input.value;
+  });
+
+  console.log(submitInfo);
 };

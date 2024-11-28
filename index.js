@@ -3,6 +3,7 @@ import {
   handleOnFocusIn,
   handleOnFocusOut,
   handleOnInput,
+  handleOnSubmit,
 } from "./eventHandlers.js";
 
 // ########## References ########## //
@@ -14,6 +15,7 @@ form.addEventListener("click", handleOnClick);
 form.addEventListener("focusin", handleOnFocusIn);
 form.addEventListener("focusout", handleOnFocusOut);
 form.addEventListener("input", handleOnInput);
+form.addEventListener("submit", handleOnSubmit);
 
 // ########## Other code ########## //
 prefillBtn.addEventListener("click", () => {
