@@ -1,3 +1,20 @@
+import {
+  handleOnClick,
+  handleOnFocusIn,
+  handleOnFocusOut,
+  handleOnInput,
+} from "./eventHandlers.js";
+
+// ########## References ########## //
+const prefillBtn = document.querySelector(".prefill-btn");
+const form = document.querySelector("form");
+
+// ########## Register Event Listeners ########## //
+form.addEventListener("click", handleOnClick);
+form.addEventListener("focusin", handleOnFocusIn);
+form.addEventListener("focusout", handleOnFocusOut);
+form.addEventListener("input", handleOnInput);
+
 // ########## Other code ########## //
 prefillBtn.addEventListener("click", () => {
   const inputs = document.querySelectorAll("input");
