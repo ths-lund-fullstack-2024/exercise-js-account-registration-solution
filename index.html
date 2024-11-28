@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Register your account</h1>
+    <form>
+      <div class="input-container">
+        <label> Name </label>
+        <input id="name" required type="text" />
+      </div>
+      <div class="input-container">
+        <label> Username </label>
+        <input id="username" required type="text" />
+      </div>
+      <div class="input-container">
+        <label> Email </label>
+        <input id="email" required type="email" />
+      </div>
+      <div class="input-container">
+        <label> Password </label>
+        <input id="password" required type="password" />
+      </div>
+      <div class="input-container">
+        <label> Confirm password </label>
+        <input id="confirmPassword" required type="password" />
+      </div>
+      <button class="submit-btn" disabled id="submit-btn" type="submit">
+        Sign up
+      </button>
+    </form>
+    <div class="prefill"><button class="prefill-btn">Prefill form</button></div>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
